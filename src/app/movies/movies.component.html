@@ -6,6 +6,9 @@
   <img mat-card-image src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" *ngIf="movie.backdrop_path">
   <img mat-card-image src="http://placehold.it/500x250" *ngIf="!movie.backdrop_path">
 
+  <mat-card-content>
+    <bar-rating [(rate)]="rate" [max]="5">{{rate}} star(s)</bar-rating>
+  </mat-card-content>
 </mat-card>
 
 <button (click)="outputData()">button</button>

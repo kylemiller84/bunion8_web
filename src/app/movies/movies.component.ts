@@ -10,6 +10,7 @@ import { Movie } from '../../movie';
 export class MoviesComponent implements OnInit {
 
   movies : Array<Movie>
+  rate = 5;
 
   outputData(){
     console.log(this.movies);
