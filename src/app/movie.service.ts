@@ -17,6 +17,14 @@ export class MovieService {
     return this.http.get<Movie>(endpoint).map(res => res['results']);
   }
 
+  addRating(movie: Movie){
+    let newRating = {
+      movieId: movie.id,
+      stars: movie.overall_rating
+  }
+    return this.http.post("http://localhost:8080/rating", newRating);
+  }
+
   addMovie(movie: Movie){
     console.log(movie);
     let newMovie = {
@@ -28,6 +36,8 @@ export class MovieService {
     };
     return this.http.post("http://localhost:8080/movie", newMovie);
   }
+
+  
 
   getMovies() : Observable<Movie[]> {
     return this.http.get<Movie[]>("http://localhost:8080/movie");
